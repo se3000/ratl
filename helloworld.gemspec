@@ -6,10 +6,10 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 1.2") if s.respond_to? :required_rubygems_version=
   s.authors = ["Steve Ellis"]
-  s.date = %q{2011-02-03}
+  s.date = %q{2011-02-04}
   s.description = %q{An Email parser}
   s.email = %q{sellis6688@gmail.com}
-  s.files = ["Rakefile", "dependencies.rb", "markers.rb", "ratl.rb", "ratl_spec.rb", "Manifest", "helloworld.gemspec"]
+  s.files = ["Manifest", "Rakefile", "dependencies.rb", "markers.rb", "ratl.rb", "ratl_spec.rb", "helloworld.gemspec"]
   s.homepage = %q{}
   s.rdoc_options = ["--line-numbers", "--inline-source", "--title", "Helloworld"]
   s.require_paths = ["lib"]
