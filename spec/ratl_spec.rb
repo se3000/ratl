@@ -109,26 +109,32 @@ HTML_MESSAGE
 
 	describe "#splitter" do
 		before do
+			@message = "<hi>"
 			@ratl = Ratl.new(@text)
+			@parsed = @ratl.splitter
 		end
 
 		it "pulls the text above the first marker" do
 			marker = "On Fri, Jan 7, 2011 at 3:15 PM, Steve Ellis <sellis@pivotallabs.com> wrote:"
 
 			@ratl.splitter.should_not include marker
-			@ratl.splitter.should include "<hi>" 
+			@ratl.splitter.should include @message 
 		end
 
 		it "removes the content-type and mime encodings" do
 			marker = /Content-Type: text\/plain; charset=ISO-8859-1\s*Content-Transfer-Encoding: quoted-printable/
 
 			@ratl.splitter.should_not =~ marker
-			@ratl.splitter.should include "<hi>"
 		end
 
 		it "uses the shortest possible message" do
-			@ratl.splitter.should include "<hi>"
-			@ratl.splitter.should_not include "test comment"
+			@parsed.should include @message 
+			@parsed.should_not include "test comment"
+		end
+
+		it "strips leading/trailing whitespace" do
+			@parsed.should include @message
+			@parsed.should_not =~ /\s#{@message}\s/
 		end
 	end
 end

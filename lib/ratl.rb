@@ -17,7 +17,7 @@ class Ratl
 		parsed_messages = MARKERS.map do |marker|
 			parse_client(marker)
 		end
-		parsed_messages.sort_by(&:size).first
+		parsed_messages.sort_by(&:size).first.strip
 	end
 
 	def parse_client(delimiter)
