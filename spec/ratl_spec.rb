@@ -107,15 +107,6 @@ HTML_MESSAGE
 		end
   end
 
-	describe "MARKERS" do
-		context "correctly matches" do
-			it "GMAILs" do
-				message = "Here \nOn Fri, Jan 7, 2011 at 3:09 PM, ahiruubdfsu <notifications@rr.redroverhq.us> wrote: stuff"
-				debugger
-				Ratl.new(message).splitter(Markers::GMAIL).should == "Here"
-			end
-		end
-	end
 	describe "#splitter" do
 		before do
 			@ratl = Ratl.new(@text)

@@ -36,12 +36,12 @@ module Markers
 		EMAIL = "#{EMAIL_CHARS}+@#{EMAIL_CHARS}+\.[a-zA-Z]+"
 #########################################
 	#Client Delimiters
-		GMAIL = /(.*)(^On #{DAY_ABREV_3_CHAR}, #{MONTH_ABREV_3_CHAR} #{MONTH_DATE}, 2[0-9]{3} at #{TIMES} (?:AM||PM), .* <#{EMAIL}> wrote:)(.*)/m
+		GMAIL = "On #{DAY_ABREV_3_CHAR}, #{MONTH_ABREV_3_CHAR} #{MONTH_DATE}, 2[0-9]{3} at #{TIMES} (?:AM||PM), .* <#{EMAIL}> wrote:"
 		# On Fri, Jan 7, 2011 at 3:15 PM, Steve Ellis <sellis@pivotallabs.com> wrote:
-		IPHONE = /(.*)(On #{MONTH_ABREV_3_CHAR} #{DAY_DATE}, #{YEAR_DATE}, at #{TIMES}, .* <#{EMAIL}> wrote:)(.*)/
+		IPHONE = "On #{MONTH_ABREV_3_CHAR} #{DAY_DATE}, #{YEAR_DATE}, at #{TIMES} (?:AM||PM), .* <#{EMAIL}> wrote:"
 		# On Jan 24, 2011, at 8:00 PM, Airbnb <automated@airbnb.com> wrote:
 		
 		
-		MARKERS = [GMAIL, IPHONE]
+		MARKERS = [GMAIL, IPHONE].map{|m| /#{m}/s}
 		
 end
